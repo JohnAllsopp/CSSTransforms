@@ -1,0 +1,17 @@
+h1. HTML5 Input Range Polyfill/Unobtrusive Accessible Slider
+
+At a glance:
+
+* The script can be used as an interim HTML5 range polyfill solution
+* Introduces a gradient filled "range bar" for quick visual feedback
+* iOS Touch screen friendly
+* Arrives with a new CSS3 skin that degrades gracefully in older browsers
+* Unobtrusive & namespace friendly
+* Conforms to the WAI-ARIA defined role of “slider”
+* Keyboard accessible
+
+Current Demos: 
+
+* "Mixed HTML5 polyfill and Javascript API demo":http://www.frequency-decoder.com/demo/fd-slider/
+* "Using yesnope and Modernizr to load dependencies":http://www.frequency-decoder.com/demo/fd-slider/yesnope/
+

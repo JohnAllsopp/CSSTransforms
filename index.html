@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Transforms</title>
+
+<link rel="stylesheet" type="text/css" href="../editorstyle.css"  />	
+<script type="text/javascript" src="../helperJS/collapseSibling.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen, projection" href="../html5-slider/css/fd-slider.css" />
+<script src="../html5-slider/js/fd-slider.js"></script>
+
+<script type="text/javascript" src="transform.js"></script>
+
+</head>
+<body>
+
+<div id="wrapper">
+
+<form action="">
+
+<div id="transform-origin-properties-container" class="properties-container">
+<h1 class="label" onclick="collapseJS.toggle(this)">Transform Origin</h1>
+	<div class="toggle-container">
+
+	<div id="originX-container" class="property-container">
+		<label for="originX">X Origin</label>
+		<input type="text" id='originX' class='slider'  onchange="transformIT()" value="0"/><span class="percentage"> %</span>
+	</div> <!-- originX-container -->
+
+	<div id="originY-container" class="property-container">
+		<label for="originY">Y Origin</label>
+		<input type="text" id='originY' class='slider'  onchange="transformIT()" value="0"/><span class="percentage"> %</span>
+	</div> <!-- originY-container -->
+	</div>
+	</div> <!-- transform-origin-properties-container -->
+
+
+<div id="twoDTransform-properties-container" class="properties-container">
+	<h1 class="label" onclick="collapseJS.toggle(this)">2D Transforms</h1>
+	<div class="toggle-container">
+
+	<div id="scale-container" class="property-container">
+		<label for="scale">Scale</label>
+		<input type="text" id='scale' class='slider'  onchange="transformIT()" value=".75"/>
+	</div> <!-- scale-container -->
+
+	<div id="rotateX-container" class="property-container">
+		<label for="rotateX">rotate X</label>
+		<input type="text" id='rotateX' class='slider'  onchange="transformIT()" value="9"/>
+	</div> <!-- rotateX-container -->
+
+	<div id="rotateY-container" class="property-container">
+		<label for="rotateY">rotate Y</label>
+		<input type="text" id='rotateY' class='slider'  onchange="transformIT()" value="9"/>
+	</div> <!-- rotateY-container -->
+
+
+	<div id="translateX-container" class="property-container">
+		<label for="translateX">translate x</label>
+		<input type="text" id='translateX' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- translateX-container -->
+
+	<div id="translateY-container" class="property-container">
+		<label for="translateY">translate y</label>
+		<input type="text" id='translateY' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- translateY-container -->
+
+	<div id="skewX-container" class="property-container">
+		<label for="skewX">skew x</label>
+		<input type="text" id='skewX' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- skewX-container -->
+
+	<div id="skewY-container" class="property-container">
+		<label for="skewY">skew y</label>
+		<input type="text" id='skewY' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- skewY-container -->
+	</div>
+	</div> <!-- 2dTransform-properties-container -->
+	
+	<div id="threeDTransform-properties-container" class="properties-container">
+		<h1 class="label" onclick="collapseJS.toggle(this)">3D Transforms</h1>
+		<div class="toggle-container">
+
+	<div id="scaleZ-container" class="property-container">
+		<label for="scaleZ">Scale Z</label>
+		<input type="text" id='scaleZ' class='slider'  onchange="transformIT()" value="1"/>
+	</div> <!-- scaleZ-container -->
+
+	<div id="rotateZ-container" class="property-container">
+		<label for="rotateZ">rotate Z</label>
+		<input type="text" id='rotateZ' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- rotateZ-container -->
+
+	<div id="translateZ-container" class="property-container">
+		<label for="translateZ">translate Z</label>
+		<input type="text" id='translateZ' class='slider'  onchange="transformIT()" value="0"/>
+	</div> <!-- translateZ-container -->
+
+	<div id="perspective-container" class="property-container">
+		<label for="perspective">perspective</label>
+		<input type="text" id='perspective' class='slider'  onchange="transformIT()" value="200"/>
+	</div> <!-- perspective-container -->
+
+	<div id="perspective-origin-x-container" class="property-container">
+		<label for="perspective-origin-x">perspective origin X</label>
+		<input type="text" id='perspective-origin-x' class='slider'  onchange="transformIT()" value="50"/><span class="percentage"> %</span>
+	</div> <!-- perspective-container -->
+
+	<div id="perspective-origin-y-container" class="property-container">
+		<label for="perspective-origin-y">perspective origin Y</label>
+		<input type="text" id='perspective-origin-y' class='slider'  onchange="transformIT()" value="50"/><span class="percentage"> %</span>
+	</div> <!-- perspective-container -->
+
+
+
+	</div>
+
+
+	</div> <!-- 3dTransform-properties-container -->
+	
+	<div id="animation-properties-container" class="properties-container">
+		<h1 class="label" onclick="collapseJS.toggle(this)">Animation</h1>
+		<div class="toggle-container">
+
+	<div id="duration-container" class="property-container">
+		<label for="duration">duration</label>
+		<input type="text" id='duration' class='slider'  onchange="animateIt()" value=".75"/> 
+		
+	</div> <!-- duration-container -->
+	
+		<div id="timing-function-container" class="property-container">
+		<label for="timing-function">timing-function</label>
+		<select id='timing-function' class='timing-chooser position-chooser' onchange="updateAnimation()">
+			<option value='ease'>ease</option>
+			<option value="linear">linear</option>
+			<option value="ease-in">ease-in</option>
+			<option value="ease-out">ease-out</option>
+			<option value="linear">ease-in-out</option>	
+		</select>
+	</div> <!-- timing-function-container -->
+			
+<div id="animate-button-container"><span class="ourButton"  onclick="animateIt()">Animate</span>
+</div> <!--animate-button-container -->
+
+</div>
+</div> <!-- animation-properties-container -->
+
+</form>
+
+	<div id="results" class="properties-container">
+		<h1 class="label" onclick="collapseJS.toggle(this)">Preview</h1>
+		<div class="toggle-container">
+
+					<div id="demo"><p>IT is a truth universally acknowledged, that a single man in possession of a good fortune must be in want of a wife.</p>
+					</div> <!-- demo -->		
+		</div>
+		
+		<h1 class="label" onclick="collapseJS.toggle(this)">The code</h1>
+		<div class="toggle-container">
+		
+			<div id="code"></div>
+				<p><input id="addPrefixes" type="checkbox" onchange="transformIt()"/> <label for="addPrefixes">Add Vendor Specific Prefixes</label></p>
+		</div>
+		
+		<h1 class="label" onclick="collapseJS.toggle(this)">Support</h1>
+		<div id="support" class="toggle-container">
+			<p>
+			<span id="safariSupport"><img src="../images/safari.png" alt="Supported in Safari 4" class="supported"/><span class="supportVersion">4</span></span>
+			<span id="firefoxSupport"><img src="../images/firefox.png" alt="Supported in Firefox 10" class="supported"/><span class="supportVersion">10</span></span>
+			<span id="operaSupport"><img src="../images/opera.png" alt="Not Supported in Opera" class="not-supported"/><span class="supportVersion">10.6</span></span>
+			<span id="chromeSupport"><img src="../images/chrome.png" alt=" Supported in Chrome 12" class="supported"/><span class="supportVersion">12</span></span>
+			<span id="ieSupport"><img src="../images/IE.png" alt="Supported in IE10" class="supported"/><span class="supportVersion">10</span></span>
+			<span id="iOSSupport"><img src="../images/iOS.png" alt="Supported in iOS 4" class="supported"/><span class="supportVersion">4</span></span>
+			<span id="androidSupport"><img src="../images/android.png" alt="Supported in Android 3" class="supported"/><span class="supportVersion">3</span></span>
+			</p>
+		</div> <!-- support -->
+
+
+
+		<h1 class="label" onclick="collapseJS.toggle(this)">About 2D Transforms</h1>
+		<div class="toggle-container">
+		
+		<div id="notes">
+			<p>CSS 3D Transforms are increasingly supported in current browsers as of late 2011. They are however still experimental, and require vendor specific prefixes in all browsers. For a detailed look at how they work, and things to keep in mind, see our article on <a href="http://www.webdirections.org/blog/2d-transforms-in-css3">CSS3 2D Transforms</a>.</p>
+		</div> <!-- info-->
+
+	</div> <!-- results -->
+</div> <!-- wrapper -->
+	
+</div>
+
+</body>
+</html>
